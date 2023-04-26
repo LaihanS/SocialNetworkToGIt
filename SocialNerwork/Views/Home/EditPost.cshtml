@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Crear Prueba De Lab";
+}
+
+@model SocialNetwork.Core.Application.ViewModels.Posts.SavePostViewModel;
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-light">
+                    <h4> Editar Post </h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-body">
+                        @Html.ValidationSummary(false, "", new{@class = "text-danger" })
+                        <form enctype="multipart/form-data" method="post" asp-controller="Home" asp-action="EditPost">
+
+                            <div class="mb-3">
+                                <label for="NameText" class="form-label">Text</label>
+                                <input asp-for="PostText" class="form-control" id="NameText">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto</label>
+                                <input type="file" asp-for="File" class="form-control" id="foto">
+                            </div>
+
+                            <input type="hidden" asp-for="id">
+
+                            <button type="submit" class="btn btn-primary">Dale</button>
+                            <a asp-controller="Usuario" asp-action="Index" class="btn btn-warning">Atrás</a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Crear Prueba De Lab";
+}
+
+@model SocialNetwork.Core.Application.ViewModels.User.SaveUserViewModel;
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-light">
+                    <h4> Registro </h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-body">
+                        @Html.ValidationSummary(false, "", new{@class = "text-danger" })
+                        <form enctype="multipart/form-data" method="post" asp-controller="Usuario" asp-action="Register">
+
+                            <div class="mb-3">
+                                <label for="NameText" class="form-label">Nombre</label>
+                                <input  asp-for="Nombre" class="form-control" id="NameText">
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="ApellidoText" class="form-label">Apellido</label>
+                                <input  asp-for="Apellido" class="form-control" id="ApellidoText">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input asp-for="Telefono" class="form-control" placeholder="Ej: (809)222-2222" id="telefono">
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="usernameText" class="form-label">UserName: </label>
+                                <input  asp-for="UserName" class="form-control" id="usernameText">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Correo" class="form-label">Correo</label>
+                                <input  asp-for="Correo" class="form-control" id="Correo">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto</label>
+                                <input type="file" asp-for="file" class="form-control" id="foto">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="Contraseña" class="form-label">Contraseña</label>
+                                <input asp-for="Contraseña" class="form-control" id="Contraseña">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="ConfirmContraseña" class="form-label">Confrmar Contraseña</label>
+                                <input asp-for="ConfirmContraseña" class="form-control" id="ConfirmContraseña">
+                            </div>
+
+                            <input type="hidden" asp-for="id">
+
+                            <button type="submit" class="btn btn-primary">Dale</button>
+                            <a asp-controller="Usuario" asp-action="Index" class="btn btn-warning">Atrás</a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

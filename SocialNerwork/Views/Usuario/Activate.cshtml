@@ -1,0 +1,11 @@
+﻿@model SocialNetwork.Core.Application.ViewModels.User.SaveUserViewModel;
+
+
+<div class="col-lg-6 col-md-8 mx-auto">
+    <form method="post" asp-controller="Usuario" asp-action="Astivar">
+
+        <input type="hidden" asp-for="id" value="@Model.id">
+
+        <button type="submit" class="btn btn-primary">Activar Usuario</button>
+    </form>
+</div>

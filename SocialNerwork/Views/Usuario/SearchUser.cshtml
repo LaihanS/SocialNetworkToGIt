@@ -1,0 +1,12 @@
+﻿
+<div class="col-lg-6 col-md-8 mx-auto">
+       <h4> Buscar el usuario </h4>
+    @Html.ValidationSummary(false, "", new{@class = "text-danger" })
+    <form method="post" asp-controller="Usuario" asp-action="SearchUser">
+
+        <input type="search" class="form-control ds-input" id="search-input" placeholder="Buscar usuario para restablecer contraseña..."
+               aria-label="Search for..." name="username">
+
+        <button type="submit" class="btn btn-primary">Dale</button>
+    </form>
+</div>

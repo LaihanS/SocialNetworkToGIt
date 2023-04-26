@@ -1,0 +1,9 @@
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.csproj.AssemblyReference.cache
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.AssemblyInfoInputs.cache
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.AssemblyInfo.cs
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.csproj.CoreCompileInputs.cache
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.RazorAssemblyInfo.cache
+C:\Users\randomç\source\repos\SocialNerwork\SocialNerwork\obj\Debug\net6.0\WebApp.SocialNerwork.RazorAssemblyInfo.cs

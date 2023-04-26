@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model SocialNetwork.Core.Application.ViewModels.User.UserViewModel;
+@using Microsoft.AspNetCore.Http;
+@using SocialNetwork.Core.Application.Helpers;
+@using SocialNetwork.Core.Application.ViewModels.Posts;
+@using SocialNetwork.Core.Application.ViewModels.User;
+@using SocialNetwork.Core.Application.ViewModels.UserFriend;
+@using SocialNetwork.Core.Domain.Entities;
+@inject IHttpContextAccessor httpcontext;
+@{
+    UserViewModel user = httpcontext.HttpContext.Session.Get<UserViewModel>("user");
+}
+
+@{
+    int counter = 0;
+}
+
+<div class="row">
+    <div class="col s12 m4 l3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+                @foreach (UserViewModel usuario in ViewBag.Usuarios)
+                {
+                    <div class="row py-lg-5">
+                        <div class="chip">
+                            <img src="@usuario.ImgPath" alt="Person" width="96" height="96">
+                            @usuario.Nombre  @usuario.Apellido (@usuario.UserName)
+                        </div>
+                          <a asp-controller="Friend" asp-action="Delete" asp-route-id="@usuario.id" class="btn btn-sm btn-outline-danger mx-2">Borrar</a>
+
+                    </div>
+                }
+        </div>
+      </div>
+    </div>
+
+
+
+
+<div class="col-lg-6 col-md-8 mx-auto">
+         @Html.ValidationSummary(false, "", new{@class = "text-danger" })
+    <form method="post" asp-controller="Friend" asp-action="Index">
+
+        <input required type="search" class="form-control ds-input" id="search-input" placeholder="Buscar Amigo Por Usuario..."
+               aria-label="Search for..." name="username">
+
+        <button type="submit" class="btn btn-primary">Dale</button>
+    </form>
+</div>
+
+
+
+    @foreach (PostViewModel post in ViewBag.Posts)
+    {
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <div class="card" style="width: 30rem;">
+                        <div class="chip">
+                            <img src="@post.Usuario.ImgPath" alt="Person" width="96" height="96">
+                            @post.Usuario.Nombre @post.Usuario.Apellido
+                        </div>
+                        <img src="@post.ImgPath" class="card-img-top">
+                        <div class="card-body">
+                              <p class="card-text">@post.created</p>
+                        <p class="card-text">@post.PostText</p>
+                            <div class="accordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="@($"panelsStayOpen-heading{@counter}")">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="@($"#panelsStayOpen-collapse{@counter}")" aria-expanded="false"
+                                            aria-controls="@($"panelsStayOpen-collapse{@counter}")">
+                                            Comments
+                                        </button>
+                                    </h2>
+
+                                    <div id="@($"panelsStayOpen-collapse{@counter}")" class="accordion-collapse collapse"
+                                     aria-labelledby="@($"panelsStayOpen-heading{@counter}")">
+                                        <div class="accordion-body">
+
+                                            <form asp-action="Index" asp-controller="Friend" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="PostId" value="@post.id" />
+                                                <input type="hidden" name="UserId" value="@user.id" />
+                                                <input type="hidden" name="ImgPath" value="@user.ImgPath" />
+                                                <textarea id="body" class="form-control" name="text"
+                                                      placeholder="Comente el diparate que se le ocurra, @user.UserName"></textarea>
+
+                                                <button type="submit" class="btn btn-warning" id="btnEliminarBook">Comentar</button>
+                                            </form>
+
+                                        </div>
+
+                                        @foreach (var comment in post.Comentarios)
+                                        {
+                                            <div class="row py-lg-5">
+                                                <div class="chip">
+                                                    <img src="@comment.ImgPath" alt="Person" width="96" height="96">
+                                                    @comment.text
+                                                </div>
+
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        counter++;
+    }
